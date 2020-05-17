@@ -134,7 +134,8 @@ WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
 
 
-DROP TABLE emp_info CASCADE;
+DELETE TABLE emp_info CASCADE;
+
 SELECT e.emp_no,
 	e.first_name,
 e.last_name,
@@ -206,3 +207,24 @@ ON (ri.emp_no = de.emp_no)
 INNER JOIN departments AS d
 ON (de.dept_no = d.dept_no)
 WHERE d.dept_name IN ('Sales', 'Development');
+
+-- Challenge 1
+SELECT ri.emp_no,
+	ri.first_name,
+	ri.last_name,
+	ti.title,
+	ti.from_date,
+	s.salary
+INTO retirement_title
+FROM retirement_info as ri
+INNER JOIN titles AS ti
+ON (ri.emp_no = ti.emp_no)
+INNER JOIN salaries AS s
+ON (ti.emp_no = s.emp_no)
+
+-- Group by titles
+SELECT re.title, COUNT(re.emp_no)
+FROM retirement_title as re
+GROUP BY re.title;
+
+
