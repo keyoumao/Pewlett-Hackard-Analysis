@@ -227,4 +227,46 @@ SELECT re.title, COUNT(re.emp_no)
 FROM retirement_title as re
 GROUP BY re.title;
 
+SELECT * FROM retirement_title;
+
+-- Partition the data to show only most recent title per employee
+SELECT ______,
+ __________,
+ _________,
+ _______,
+ _____
+INTO nameyourtable
+FROM
+ (SELECT ______,
+ __________,
+ _________,
+ _______,
+ _____, ROW_NUMBER() OVER
+ (PARTITION BY (emp_no)
+ ORDER BY to_date DESC) rn
+ FROM __________
+ ) tmp WHERE rn = 1
+ORDER BY emp_no;
+
+
+-- Partition the data to show only most recent title per employee
+SELECT emp_no,
+ first_name,
+ last_name,
+ title,
+ from_date,
+ salary
+INTO nameyourtable
+FROM
+ (SELECT emp_no,
+ first_name,
+ last_name,
+ title,
+ from_date,
+ salary, ROW_NUMBER() OVER
+ (PARTITION BY (emp_no)
+ ORDER BY from_date DESC) rn
+ FROM retirement_title
+ ) tmp WHERE rn = 1
+ORDER BY emp_no;
 
