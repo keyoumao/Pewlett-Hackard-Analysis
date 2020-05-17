@@ -14,10 +14,11 @@ Mentorship Eligibility. A table containing employees who are eligible for the me
 
 ## 2. Methods
 
-In your second paragraph, summarize the steps that you took to solve the problem, as well as the challenges that you encountered along the way. This is an excellent spot to provide examples and descriptions of the code that you used.
-Include only the most recent titles in the table. 
+The ERD diagram can be refred as follows:
 
-### 2.1 The code used for creating a new table Number of Retiring Employeess by Title
+![ERD Diagram](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/EmployeeDB.PNG)
+
+### 2.1 The code used for creating a new table Number of Retiring Employees by Title
 
 ``` sql
 SELECT ri.emp_no,
@@ -118,8 +119,40 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
    AND (ti.to_date = '9999-01-01');
 ```
 
-![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/EmployeeDB.PNG "Logo Title Text 1")
-
 ## 3. Results and Discussion
 
-In your final paragraph, share the results of your analysis and discuss the data that you’ve generated. Have you identified any limitations to the analysis? What next steps would you recommend?
+Two CSV files are generated as *retirement_title.csv* and *mentorship_eligibility*. More information can be found in the */Data* Folder.
+
+### 3.1 New table for retiring employees by titles
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.1.PNG)
+
+### 3.2 Count for the number of [titles] retiring
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.2.PNG)
+
+### 3.3 Count for the number of employees with each title
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.3.PNG)
+
+### 3.4 Table for only the most recent titles
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.4.PNG)
+
+### 3.5 A list of current employees born between Jan. 1, 1952 and Dec. 31, 1955
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.5.PNG)
+
+### 3.6 Mentorship eligibility
+
+![alt text](https://github.com/keyoumao/Pewlett-Hackard-Analysis/blob/master/Fig.6.PNG)
+
+### 3.7 Limitations and Recommendations
+
+Several questions have still not been answered:
+
+1. What’s going on with the salaries?
+2. Why are there only five active managers for nine departments?
+3. What about posting future openings?
+
+We recommend to reforatting the salaries table, check all the active managers group by salary and link the retirement positions order by salary and group by title. 
