@@ -121,7 +121,7 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 
 ## 3. Results and Discussion
 
-Two CSV files are generated as *retirement_title.csv* and *mentorship_eligibility*. More information can be found in the */Data* Folder.
+Two CSV files are generated as *retirement_title.csv* and *mentorship_eligibility.csv*. More information can be found in the */Data* Folder.
 
 ### 3.1 New table for retiring employees by titles
 
